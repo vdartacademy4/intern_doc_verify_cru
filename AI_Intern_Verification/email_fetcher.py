@@ -18,8 +18,8 @@ def fetch_emails():
     try:
 
         mail.login(
-            "cfxofficial3@gmail.com",
-            "vouz cybc jeqb kbhj"
+            "MAIL ID",
+            "APP PASSWORD"
         )
 
     except Exception as e:
