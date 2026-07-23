@@ -1,0 +1,48 @@
+============================================================
+AI INTERN DOCUMENT VERIFICATION
+============================================================
+
+Candidate Folder : candidate_1
+
+RESUME
+------------------------------
+Name : Devendran
+Email : devendrann4321@gmail.com
+Phone : +91 8438435975
+College : Bharathidasan University, Khajamalai campus- Tiruchirappalli, Tamil Nadu – 620 024
+
+AADHAAR
+------------------------------
+Name : Devendran Anandhan
+Aadhaar : 9012 0530 3651
+Gender : Male
+Year : 13/08/2006
+
+COLLEGE ID
+------------------------------
+Name : 
+Register No : 
+College : 
+
+OFFER LETTER
+------------------------------
+Name : Devendran A
+Enrollment ID : A1593
+Technology : Data Analytics
+Start Date : 27-Apr-2026
+End Date : 17-Jul-2026
+
+EMAIL BODY
+------------------------------
+Name : Devendran A
+Register No : 
+Domain : Data Analytics
+
+VERIFICATION RESULT
+------------------------------
+Resume : MATCHED
+Aadhaar : MATCHED
+College : MISSING
+Offer : MATCHED
+Final Status : MANUAL REVIEW
+Score : 100.0

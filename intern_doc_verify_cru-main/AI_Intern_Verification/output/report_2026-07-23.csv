@@ -1,0 +1,3 @@
+Folder_Name,Processed_Date,Processed_Time,Candidate_Name,Resume_Name_Status,Aadhaar_Status,CollegeID_Status,OfferLetter_Status,Email,Phone,College,Register_Number,Aadhaar_Number,Technology,Enrollment_ID,Start_Date,End_Date,Uploaded_Files,Missing_Documents,Final_Status
+candidate_1,2026-07-23,07:02 AM,,MISSING,MISSING,MISSING,MISSING,,,,,,,,,,,college_id,INVALID / MISSING DOCUMENTS
+Devendran_A_A1593,2026-07-23,07:03 AM,DEVENDRAN A,MATCHED,MATCHED,MISSING,MATCHED,devendrann4321@gmail.com,+91 8438435975,,,9012 0530 3651,Data Analytics,A1593,27-Apr-2026,17-Jul-2026,"aadhar.pdf, Devendran_ID card.pdf, email_body.txt, extracted_details.txt, offerletter.pdf, original_filename.txt, photo.pdf, resume.pdf",college_id,MANUAL REVIEW

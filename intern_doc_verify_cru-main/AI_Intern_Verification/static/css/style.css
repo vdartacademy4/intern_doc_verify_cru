@@ -1,0 +1,1273 @@
+/* ==========================================================
+   VDART AI INTERN VERIFICATION DASHBOARD
+   PART 1 (UPDATED)
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --primary:#003865;
+    --secondary:#00A3E0;
+    --accent:#00B140;
+
+    --bg:#F5F8FC;
+
+    --card:#FFFFFF;
+
+    --text:#1F2937;
+
+    --text-light:#6B7280;
+
+    --border:#DCE7F2;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --verified:#DDF8E7;
+
+    --manual:#FFF5D8;
+
+    --mismatch:#FFE1E1;
+
+    --missing:#ECECEC;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    font-family:'IBM Plex Sans',sans-serif;
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+
+
+/* ==========================================================
+   TOP PREVIEW BAR
+========================================================== */
+
+.preview-bar{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:12px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header{
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:28px 60px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.seal{
+
+    width:74px;
+
+    height:74px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    box-shadow:0 8px 20px rgba(0,56,101,.25);
+
+}
+
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.header h1{
+
+    font-size:34px;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+.header p{
+
+    margin-top:6px;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+}
+
+
+
+/* ==========================================================
+   RIGHT SIDE
+========================================================== */
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+
+/* ==========================================================
+   GMAIL STATUS
+========================================================== */
+
+.gmail-status{
+
+    padding:12px 20px;
+
+    border-radius:40px;
+
+    background:#E9FFF3;
+
+    color:#0A8A43;
+
+    font-weight:600;
+
+    box-shadow:0 6px 18px rgba(0,177,64,.12);
+
+}
+
+
+
+/* ==========================================================
+   PROCESS BUTTON
+========================================================== */
+
+#processBtn{
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#processBtn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+
+}
+
+
+
+/* ==========================================================
+   COMMON SECTION SPACING
+========================================================== */
+
+.dashboard,
+.controls,
+.registry{
+
+    animation:fadeUp .5s ease;
+
+}
+
+
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================================
+   DASHBOARD KPI CARDS
+========================================================== */
+
+.dashboard{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    padding:35px 60px;
+
+}
+
+.card{
+
+    background:linear-gradient(180deg,#ffffff,#f8fbff);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    border-top:6px solid var(--primary);
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+
+}
+
+.card h2{
+
+    font-size:46px;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.card p{
+
+    color:#667085;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+.card.verified{
+
+    border-top:6px solid #00B140;
+
+}
+
+.card.manual{
+
+    border-top:6px solid #F4B400;
+
+}
+
+.card.mismatch{
+
+    border-top:6px solid #D93025;
+
+}
+
+
+
+/* ==========================================================
+   SEARCH + FILTER BAR
+========================================================== */
+
+.controls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:0 60px 35px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+/* SEARCH */
+
+#search{
+
+    flex:1;
+
+    min-width:360px;
+
+    height:54px;
+
+    padding:0 22px;
+
+    border-radius:50px;
+
+    border:2px solid #DCE7F2;
+
+    background:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+#search:focus{
+
+    outline:none;
+
+    border-color:var(--secondary);
+
+    box-shadow:0 0 15px rgba(0,163,224,.20);
+
+}
+
+
+
+/* FILTER BUTTONS */
+
+.filters{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.filter{
+
+    border:none;
+
+    background:white;
+
+    color:var(--primary);
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.filter:hover{
+
+    background:var(--secondary);
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+.filter.active{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+}
+
+
+
+/* ==========================================================
+   REGISTRY HEADER
+========================================================== */
+
+.registry-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:24px 30px;
+
+    background:#F8FBFF;
+
+    border-bottom:1px solid #E5EEF7;
+
+}
+
+.registry-header h2{
+
+    font-size:34px;
+
+    color:var(--primary);
+
+}
+
+.registry-header p{
+
+    margin-top:6px;
+
+    color:#7B8794;
+
+}
+
+
+
+/* ==========================================================
+   DATE FILTER
+========================================================== */
+
+.registry-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.date-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:white;
+
+    padding:12px 18px;
+
+    border-radius:16px;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.08);
+
+}
+
+.date-box input{
+
+    border:none;
+
+    outline:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    background:transparent;
+
+    cursor:pointer;
+
+}
+/* ==========================================================
+   CANDIDATE REGISTRY
+========================================================== */
+
+.registry{
+
+    margin:0 60px 40px;
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.registry table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    table-layout:fixed;
+
+}
+
+
+
+/* COLUMN WIDTHS */
+
+.registry th:nth-child(1),
+.registry td:nth-child(1){
+
+    width:22%;
+
+}
+
+.registry th:nth-child(2),
+.registry td:nth-child(2){
+
+    width:18%;
+
+}
+
+.registry th:nth-child(3),
+.registry td:nth-child(3){
+
+    width:12%;
+
+}
+
+.registry th:nth-child(4),
+.registry td:nth-child(4){
+
+    width:24%;
+
+}
+
+.registry th:nth-child(5),
+.registry td:nth-child(5){
+
+    width:16%;
+
+}
+
+.registry th:nth-child(6),
+.registry td:nth-child(6){
+
+    width:12%;
+
+}
+
+
+
+/* HEADER */
+
+.registry th{
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        #0A4D84
+    );
+
+    color:white;
+
+    text-align:left;
+
+    padding:18px 20px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+}
+
+
+
+/* ROWS */
+
+.registry td{
+
+    padding:20px;
+
+    border-bottom:1px solid #EDF2F7;
+
+    font-size:15px;
+
+    color:#2D3748;
+
+    word-break:break-word;
+
+}
+
+
+
+/* HOVER */
+
+.registry tbody tr{
+
+    transition:.30s;
+
+    cursor:pointer;
+
+}
+
+.registry tbody tr:hover{
+
+    background:#F3F9FF;
+
+    transform:scale(1.003);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.05);
+
+}
+
+
+
+/* NAME */
+
+.registry td strong{
+
+    color:var(--primary);
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.registry td small{
+
+    color:#7B8794;
+
+    font-size:13px;
+
+}
+
+
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:170px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+
+}
+
+
+
+/* VERIFIED */
+
+.status-verified{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+
+
+/* MANUAL REVIEW */
+
+.status-manual{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+
+
+/* MISMATCH */
+
+.status-mismatch{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+}
+
+
+
+/* INVALID / MISSING */
+
+.status-missing{
+
+    background:#ECECEC;
+
+    color:#4B5563;
+
+}
+/* ==========================================================
+   DETAILS DRAWER
+========================================================== */
+
+#overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(4px);
+
+    display:none;
+
+    z-index:999;
+
+}
+
+#detailsPanel{
+
+    position:fixed;
+
+    top:0;
+
+    right:-520px;
+
+    width:520px;
+
+    height:100vh;
+
+    background:#fff;
+
+    box-shadow:-10px 0 35px rgba(0,0,0,.18);
+
+    transition:.35s ease;
+
+    z-index:1000;
+
+    overflow:hidden;
+
+}
+
+#detailsPanel.show{
+
+    right:0;
+
+}
+
+.drawer-scroll{
+
+    height:100%;
+
+    overflow-y:auto;
+
+    padding:30px;
+
+}
+
+#closeDrawer{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#EEF5FB;
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#closeDrawer:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.drawer-header{
+
+    margin-bottom:25px;
+
+    border-bottom:1px solid #E5EEF7;
+
+    padding-bottom:20px;
+
+}
+
+.drawer-header small{
+
+    color:var(--secondary);
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+}
+
+.drawer-header h2{
+
+    margin-top:8px;
+
+    color:var(--primary);
+
+    font-size:30px;
+
+}
+
+.section{
+
+    margin-bottom:28px;
+
+}
+
+.section h3{
+
+    margin-bottom:15px;
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    border-left:5px solid var(--secondary);
+
+    padding-left:10px;
+
+}
+
+.section p{
+
+    margin:10px 0;
+
+    color:#444;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+#uploadedFiles{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.file-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:12px 16px;
+
+    border-radius:12px;
+
+    background:#F8FBFF;
+
+    border:1px solid #DCE7F2;
+
+    transition:.3s;
+
+}
+
+.file-item:hover{
+
+    background:#EDF7FF;
+
+    transform:translateX(4px);
+
+}
+
+.file-item a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.file-item a:hover{
+
+    color:var(--secondary);
+
+}
+
+
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+#loading{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(3px);
+
+    z-index:2000;
+
+}
+
+.loader-box{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.loader{
+
+    width:60px;
+
+    height:60px;
+
+    border:6px solid #DCE7F2;
+
+    border-top:6px solid var(--secondary);
+
+    border-radius:50%;
+
+    margin:auto;
+
+    animation:spin 1s linear infinite;
+
+}
+
+.loader-box p{
+
+    margin-top:18px;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    padding:22px;
+
+    text-align:center;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:14px;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EDF3F9;
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .dashboard{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:30px;
+
+    }
+
+    .controls{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    #search{
+
+        min-width:100%;
+
+    }
+
+    .registry{
+
+        margin:20px;
+
+        overflow:auto;
+
+    }
+
+    .registry table{
+
+        min-width:1000px;
+
+    }
+
+    #detailsPanel{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+        padding:25px;
+
+    }
+
+    .header h1{
+
+        font-size:24px;
+
+    }
+
+    .registry-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .registry-right{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+}
